@@ -1,11 +1,12 @@
+# Context Menus!
 A custom context menu library for web projects!
 
-Features:
+## Features:
  - Extendability
  - Customizability
  - Ease of use
 
-Support for:
+## Support for:
  - Sub-menus
  - Icons
  - Headers
