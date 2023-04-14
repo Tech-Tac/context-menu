@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Context Menu</title>
+		<link rel="stylesheet" href="contextmenu.css" />
+		<style>
+			#items {
+				background-color: lightyellow;
+				border: 1px solid gray;
+				padding: 8px;
+				display: inline-block;
+				min-width: 32em;
+				min-height: 16em;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Welcome</h1>
+		<p>Right click things to show custom context menu</p>
+		<div id="items" data-context-menu="list">
+			<button data-context-menu="item">Item0</button>
+			<button data-context-menu="item">Item1</button>
+			<button data-context-menu="item">Item2</button>
+		</div>
+		<br />
+		<br />
+		<input type="text" id="inpt1" data-context-menu="input" placeholder="Text editing" />
+		<button onclick="contextMenu(document.getElementById('inpt1'))">...</button>
+		<script src="contextmenu.js"></script>
+	</body>
+</html>
