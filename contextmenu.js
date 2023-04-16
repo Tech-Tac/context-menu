@@ -1,3 +1,6 @@
+/** 
+ * If false, Show browser's native menu when no custom menu is specified.
+ */
 let forceCustomMenu = true;
 
 /**
