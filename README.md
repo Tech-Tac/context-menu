@@ -6,7 +6,6 @@ A custom context menu library for web projects!
  - Customizability
  - Ease of use
 
-### Support for:
  - Sub-menus
  - Icons
  - Headers
