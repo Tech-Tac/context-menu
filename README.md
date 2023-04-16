@@ -13,4 +13,4 @@ A custom context menu library for web projects!
  - Separators
  - Disabled items
  - Click actions
- - And more... (I'm too lazy to remember what I made)
+ - And more!
