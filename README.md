@@ -13,4 +13,6 @@ A custom context menu library for web projects!
  - Separators
  - Disabled items
  - Click actions
- - And more!
+ - Keyboard accessable
+ - Touch screen support
+ - And more to come!
