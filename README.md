@@ -15,3 +15,8 @@ A custom context menu library for web projects!
  - Keyboard accessable
  - Touch screen support
  - And more to come!
+
+For JS experts reading, this is my first public project,
+so your help really matters.
+This project is not perfect,
+so help out by creating an issue or a pull request!
