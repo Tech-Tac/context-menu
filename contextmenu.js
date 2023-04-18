@@ -106,25 +106,25 @@ let menus = {
 						{
 							text: "hello",
 							handle: function (target) {
-								target.value = this.text;
+								target.value += this.text;
 							},
 						},
 						{
 							text: "hi",
 							handle: function (target) {
-								target.value = this.text;
+								target.value += this.text;
 							},
 						},
 						{
 							text: "welcome",
 							handle: function (target) {
-								target.value = this.text;
+								target.value += this.text;
 							},
 						},
 						{
 							text: "howdy",
 							handle: function (target) {
-								target.value = this.text;
+								target.value += this.text;
 							},
 						},
 					],
