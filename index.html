@@ -11,8 +11,9 @@
 				border: 1px solid gray;
 				padding: 8px;
 				display: inline-block;
-				min-width: 32em;
 				min-height: 16em;
+				min-width: 100vmin;
+				max-width: 100vw;
 			}
 		</style>
 	</head>
@@ -28,6 +29,7 @@
 		<br />
 		<input type="text" id="inpt1" data-context-menu="input" placeholder="Text editing" />
 		<button onclick="contextMenu(document.getElementById('inpt1'))">...</button>
+		
 		<script src="contextmenu.js"></script>
 		<script>
 			defaultMenu = [

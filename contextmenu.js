@@ -19,10 +19,13 @@ let menus = {
 
 /**
  * Adds a new context menu
+ * 
  * @param {Element} target The target element, required
  * @param {Number} x X position of the menu
  * @param {Number} y Y position of the menu
  * @param {Array} customMenu The menu to force-use
+ * 
+ * @returns {Element} The menu that was just added
  */
 function contextMenu(target, x, y, customMenu) {
 	document.getElementsByClassName("context-menu")[0]?.remove();
@@ -31,9 +34,9 @@ function contextMenu(target, x, y, customMenu) {
 	mainMenu.tabIndex = 0;
 	mainMenu.classList.add("menu");
 	mainMenu.classList.add("context-menu");
-	const rect = target.getBoundingClientRect();
-	mainMenu.style.left = (x ?? rect.x) + "px";
-	mainMenu.style.top = (y ?? rect.y) + "px";
+	const targetRect = target.getBoundingClientRect();
+	mainMenu.style.left = (x ?? targetRect.x) + "px";
+	mainMenu.style.top = (y ?? targetRect.y) + "px";
 	const blur = function () {
 		setTimeout(() => {
 			if (!mainMenu.matches(":focus-within")) {
@@ -110,7 +113,19 @@ function contextMenu(target, x, y, customMenu) {
 	mainMenu.addEventListener("blur", blur);
 
 	document.body.appendChild(mainMenu);
+
+	const rect = mainMenu.getBoundingClientRect();
+
+	if (rect.right > window.innerWidth) {
+		mainMenu.style.left = window.innerWidth - rect.width + "px";
+	}
+	if (rect.bottom > window.innerHeight) {
+		mainMenu.style.top = window.innerHeight - rect.height + "px";
+	}
+
 	mainMenu.focus();
+
+	return mainMenu;
 }
 
 /**
