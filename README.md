@@ -19,7 +19,4 @@ Showcase: <https://tech-tac.github.io/context-menu/>
 - Touch screen support
 - And more to come!
 
-For JS experts reading, this is my first public project,
-so your help really matters.
-This project is not perfect,
-so help out by creating an issue or a pull request!
+This project is still in it's beginnings, And so am I! So help me learn by contributing in this project!
