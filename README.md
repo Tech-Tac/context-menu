@@ -23,7 +23,7 @@ Example showcase: <https://tech-tac.github.io/context-menu/>
 ## Documentation
 
 A menu should be defined as an array of menu items.
-Menu items have a few properties, which are:
+Menu items are objects that can have a list of properties, which are:
 
 - `text`: The text to display on the item.
 - `icon`: The URL of the icon to display beside the item.
