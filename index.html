@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Context Menu Showcase</title>
+		<title>Context Menu Example Showcase</title>
 		<link rel="stylesheet" href="contextmenu.css" />
 		<style>
 			#items {
@@ -18,7 +18,7 @@
 	</head>
 	<body>
 		<h1>Welcome</h1>
-		<p>Right click things to show custom context menu</p>
+		<p>Right click / Press Context Menu key ▤ / Long tap things to show custom context menu</p>
 		<div id="items" data-context-menu="list">
 			<button data-context-menu="item">Item0</button>
 			<button data-context-menu="item">Item1</button>
@@ -29,5 +29,184 @@
 		<input type="text" id="inpt1" data-context-menu="input" placeholder="Text editing" />
 		<button onclick="contextMenu(document.getElementById('inpt1'))">...</button>
 		<script src="contextmenu.js"></script>
+		<script>
+			defaultMenu = [
+				{
+					text: "Refresh",
+					shortcut: "f5",
+					icon: "url('https://img.icons8.com/material-outlined/32/recurring-appointment.png')",
+					handle: function () {
+						location.reload();
+					},
+				},
+				{
+					text: "Disabled item",
+					disabled: true,
+				},
+				{
+					text: "Go to...",
+					close: false,
+					submenu: [
+						{
+							text: "Google",
+							icon: "url('https://img.icons8.com/material-outlined/32/google-logo.png')",
+							handle: function () {
+								location.href = "https://www.google.com";
+							},
+						},
+						{
+							text: "Youtube",
+							icon: "url('https://img.icons8.com/material-outlined/32/youtube.png')",
+							handle: function () {
+								location.href = "https://www.youtube.com";
+							},
+						},
+						{
+							text: "Facebook",
+							icon: "url('https://img.icons8.com/material-outlined/32/facebook.png')",
+							handle: function () {
+								location.href = "https://www.facebook.com";
+							},
+						},
+					],
+				},
+			];
+
+			/**
+			 * List of menus to refrence.
+			 */
+			menus = {
+				list: [
+					...defaultMenu,
+					{ separator: true },
+					{ header: true, text: "Actions" },
+					{
+						text: "Add",
+						handle: function (target) {
+							const newItem = document.createElement("button");
+							newItem.innerText = "Item" + target.childElementCount;
+							newItem.setAttribute("data-context-menu", "item");
+							target.appendChild(newItem);
+						},
+					},
+				],
+				item: [
+					...defaultMenu,
+					{ separator: true },
+					{
+						header: true,
+						text: "Actions",
+						load: function (item, target) {
+							item.innerText = target.innerText + " Actions";
+						},
+					},
+					{
+						text: "Add",
+						handle: function (target) {
+							const newItem = document.createElement("button");
+							newItem.innerText = "Item" + target.parentElement.childElementCount;
+							newItem.setAttribute("data-context-menu", "item");
+							target.parentElement.appendChild(newItem);
+						},
+					},
+					{
+						text: "Delete",
+						close: true,
+						handle: function (target) {
+							target.remove();
+						},
+					},
+				],
+				input: [
+					{ header: true, text: "Text Editing" },
+					{
+						text: "Words",
+						close: false,
+						submenu: [
+							{
+								text: "Greetings",
+								close: false,
+								submenu: [
+									{
+										text: "hello",
+										handle: function (target) {
+											target.value += this.text;
+										},
+									},
+									{
+										text: "hi",
+										handle: function (target) {
+											target.value += this.text;
+										},
+									},
+									{
+										text: "welcome",
+										handle: function (target) {
+											target.value += this.text;
+										},
+									},
+									{
+										text: "howdy",
+										handle: function (target) {
+											target.value += this.text;
+										},
+									},
+								],
+							},
+							{
+								text: "Names",
+								close: false,
+								submenu: [
+									{
+										text: "Ahmad",
+										handle: function (target) {
+											target.value += " " + this.text;
+										},
+									},
+									{
+										text: "Mohammed",
+										handle: function (target) {
+											target.value += " " + this.text;
+										},
+									},
+									{
+										text: "Mariam",
+										handle: function (target) {
+											target.value += " " + this.text;
+										},
+									},
+									{
+										text: "Hamza",
+										handle: function (target) {
+											target.value += " " + this.text;
+										},
+									},
+								],
+							},
+						],
+					},
+					{
+						text: "Clear",
+						handle: function (target) {
+							target.value = "";
+						},
+					},
+					{
+						text: "Copy",
+						shortcut: "ctrl+C",
+						handle: function (target) {
+							navigator.clipboard.writeText(target.value);
+						},
+					},
+					{
+						text: "Paste",
+						shortcut: "ctrl+V",
+						handle: function (target) {
+							navigator.clipboard.readText().then((clipText) => (target.value += clipText));
+						},
+					},
+				],
+			};
+		</script>
 	</body>
 </html>
