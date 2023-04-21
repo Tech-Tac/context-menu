@@ -36,8 +36,8 @@
 				{
 					text: "Refresh",
 					shortcut: "f5",
-					icon: "url('https://img.icons8.com/material-outlined/32/recurring-appointment.png')",
-					handle: function () {
+					icon: "https://img.icons8.com/material-outlined/32/recurring-appointment.png",
+					action: function () {
 						location.reload();
 					},
 				},
@@ -51,22 +51,22 @@
 					submenu: [
 						{
 							text: "Google",
-							icon: "url('https://img.icons8.com/material-outlined/32/google-logo.png')",
-							handle: function () {
+							icon: "https://img.icons8.com/material-outlined/32/google-logo.png",
+							action: function () {
 								location.href = "https://www.google.com";
 							},
 						},
 						{
 							text: "Youtube",
-							icon: "url('https://img.icons8.com/material-outlined/32/youtube.png')",
-							handle: function () {
+							icon: "https://img.icons8.com/material-outlined/32/youtube.png",
+							action: function () {
 								location.href = "https://www.youtube.com";
 							},
 						},
 						{
 							text: "Facebook",
-							icon: "url('https://img.icons8.com/material-outlined/32/facebook.png')",
-							handle: function () {
+							icon: "https://img.icons8.com/material-outlined/32/facebook.png",
+							action: function () {
 								location.href = "https://www.facebook.com";
 							},
 						},
@@ -84,7 +84,7 @@
 					{ header: true, text: "Actions" },
 					{
 						text: "Add",
-						handle: function (target) {
+						action: function (target) {
 							const newItem = document.createElement("button");
 							newItem.innerText = "Item" + target.childElementCount;
 							newItem.setAttribute("data-context-menu", "item");
@@ -104,7 +104,7 @@
 					},
 					{
 						text: "Add",
-						handle: function (target) {
+						action: function (target) {
 							const newItem = document.createElement("button");
 							newItem.innerText = "Item" + target.parentElement.childElementCount;
 							newItem.setAttribute("data-context-menu", "item");
@@ -114,7 +114,7 @@
 					{
 						text: "Delete",
 						close: true,
-						handle: function (target) {
+						action: function (target) {
 							target.remove();
 						},
 					},
@@ -131,25 +131,25 @@
 								submenu: [
 									{
 										text: "hello",
-										handle: function (target) {
+										action: function (target) {
 											target.value += this.text;
 										},
 									},
 									{
 										text: "hi",
-										handle: function (target) {
+										action: function (target) {
 											target.value += this.text;
 										},
 									},
 									{
 										text: "welcome",
-										handle: function (target) {
+										action: function (target) {
 											target.value += this.text;
 										},
 									},
 									{
 										text: "howdy",
-										handle: function (target) {
+										action: function (target) {
 											target.value += this.text;
 										},
 									},
@@ -161,25 +161,25 @@
 								submenu: [
 									{
 										text: "Ahmad",
-										handle: function (target) {
+										action: function (target) {
 											target.value += " " + this.text;
 										},
 									},
 									{
 										text: "Mohammed",
-										handle: function (target) {
+										action: function (target) {
 											target.value += " " + this.text;
 										},
 									},
 									{
 										text: "Mariam",
-										handle: function (target) {
+										action: function (target) {
 											target.value += " " + this.text;
 										},
 									},
 									{
 										text: "Hamza",
-										handle: function (target) {
+										action: function (target) {
 											target.value += " " + this.text;
 										},
 									},
@@ -189,21 +189,21 @@
 					},
 					{
 						text: "Clear",
-						handle: function (target) {
+						action: function (target) {
 							target.value = "";
 						},
 					},
 					{
 						text: "Copy",
 						shortcut: "ctrl+C",
-						handle: function (target) {
+						action: function (target) {
 							navigator.clipboard.writeText(target.value);
 						},
 					},
 					{
 						text: "Paste",
 						shortcut: "ctrl+V",
-						handle: function (target) {
+						action: function (target) {
 							navigator.clipboard.readText().then((clipText) => (target.value += clipText));
 						},
 					},

@@ -55,56 +55,56 @@ function contextMenu(target, x, y, customMenu) {
 				menu.appendChild(hr);
 				continue;
 			}
-			const menuitem = document.createElement("li");
-			menuitem.innerText = item.text;
-			menuitem.classList.add("menu-item");
+			const menuItem = document.createElement("li");
+			menuItem.innerText = item.text;
+			menuItem.classList.add("menu-item");
 
 			if (item.shortcut) {
 				const shortcut = document.createElement("span");
 				shortcut.innerText = item.shortcut;
 				shortcut.classList.add("menu-shortcut");
-				menuitem.appendChild(shortcut);
+				menuItem.appendChild(shortcut);
 			}
 
 			if (item.header == true) {
-				menuitem.classList.add("header");
+				menuItem.classList.add("header");
 			}
 			if (item.icon) {
-				menuitem.style.setProperty("--icon", item.icon);
+				menuItem.style.setProperty("--icon", "url('" + item.icon + "')");
 			}
 			if (item.disabled == true) {
-				menuitem.classList.add("disabled");
-				menuitem.inert = true;
+				menuItem.classList.add("disabled");
+				menuItem.inert = true;
 			}
 			if (!item.disabled) {
-				menuitem.tabIndex = 0;
-				const handle = function (evt) {
-					if (item.handle) {
+				menuItem.tabIndex = 0;
+				const action = function (evt) {
+					if (item.action) {
 						item.handle(target);
 					}
 					if (item.close != false && !item.submenu && !item.header) {
 						mainMenu.remove();
 					}
 				};
-				menuitem.addEventListener("click", handle);
-				menuitem.addEventListener("keydown", function (evt) {
+				menuItem.addEventListener("click", action);
+				menuItem.addEventListener("keydown", function (evt) {
 					if (evt.code == "Space" || evt.code == "Enter") {
-						handle();
+						action();
 					}
 				});
-				menuitem.addEventListener("blur", blur);
+				menuItem.addEventListener("blur", blur);
 			}
 			if (item.submenu) {
 				const submenu = document.createElement("ul");
 				submenu.classList.add("menu");
 				recursiveMenu(submenu, item.submenu);
-				menuitem.appendChild(submenu);
+				menuItem.appendChild(submenu);
 			}
 
-			menu.appendChild(menuitem);
+			menu.appendChild(menuItem);
 
 			if (item.load) {
-				item.load(menuitem, target);
+				item.load(menuItem, target);
 			}
 		}
 	}
