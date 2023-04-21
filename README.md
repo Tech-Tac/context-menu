@@ -1,22 +1,23 @@
-# Context Menus!
+# Context Menus
+
 A custom context menu library for web projects!
 
-Showcase: https://tech-tac.github.io/context-menu/
+Showcase: <https://tech-tac.github.io/context-menu/>
 
-### Features:
- - Extendability
- - Customizability
- - Ease of use
+## Features
 
- - Sub-menus
- - Icons
- - Headers
- - Separators
- - Disabled items
- - Click actions
- - Keyboard accessable
- - Touch screen support
- - And more to come!
+- Extendability
+- Customizability
+- Ease of use
+- Sub-menus
+- Icons
+- Headers
+- Separators
+- Disabled items
+- Click actions
+- Keyboard accessable
+- Touch screen support
+- And more to come!
 
 For JS experts reading, this is my first public project,
 so your help really matters.
