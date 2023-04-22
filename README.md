@@ -37,4 +37,4 @@ Menu items are objects that can have a list of properties, which are:
 - `header`: If true, the item acts as a header
 - `separator`: If true, the item acts as a separator and ignores all other properties.
 
-This project is still in it's beginnings, And so am I! So help me learn by contributing in this project!
+This project is still in it's beginnings, And so am I! So help me learn by contributing to this project!
