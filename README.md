@@ -1,6 +1,7 @@
 # Context Menus
 
-A custom context menu library for the web!  
+A custom context menu library for the web!
+
 Waiting for the day where they add an offical context menu API...
 
 Example showcase: <https://tech-tac.github.io/context-menu/>
