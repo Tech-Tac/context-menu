@@ -80,7 +80,7 @@ function contextMenu(target, x, y, customMenu) {
 				menuItem.tabIndex = 0;
 				const action = function (evt) {
 					if (item.action) {
-						item.handle(target);
+						item.action(target);
 					}
 					if (item.close != false && !item.submenu && !item.header) {
 						mainMenu.remove();
