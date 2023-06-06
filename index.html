@@ -6,6 +6,9 @@
 		<title>Context Menu Example Showcase</title>
 		<link rel="stylesheet" href="contextmenu.css" />
 		<style>
+			:root {
+				font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+			}
 			#items {
 				background-color: lightyellow;
 				border: 1px solid gray;
@@ -13,7 +16,6 @@
 				display: inline-block;
 				min-height: 16em;
 				min-width: 100vmin;
-				max-width: 100vw;
 			}
 		</style>
 	</head>
@@ -29,7 +31,6 @@
 		<br />
 		<input type="text" id="inpt1" data-context-menu="input" placeholder="Text editing" />
 		<button onclick="contextMenu(document.getElementById('inpt1'))">...</button>
-		
 		<script src="contextmenu.js"></script>
 		<script>
 			defaultMenu = [
@@ -73,14 +74,8 @@
 					],
 				},
 			];
-
-			/**
-			 * List of menus to refrence.
-			 */
 			menus = {
 				list: [
-					...defaultMenu,
-					{ separator: true },
 					{ header: true, text: "Actions" },
 					{
 						text: "Add",
@@ -93,8 +88,6 @@
 					},
 				],
 				item: [
-					...defaultMenu,
-					{ separator: true },
 					{
 						header: true,
 						text: "Actions",
@@ -121,72 +114,6 @@
 				],
 				input: [
 					{ header: true, text: "Text Editing" },
-					{
-						text: "Words",
-						close: false,
-						submenu: [
-							{
-								text: "Greetings",
-								close: false,
-								submenu: [
-									{
-										text: "hello",
-										action: function (target) {
-											target.value += this.text;
-										},
-									},
-									{
-										text: "hi",
-										action: function (target) {
-											target.value += this.text;
-										},
-									},
-									{
-										text: "welcome",
-										action: function (target) {
-											target.value += this.text;
-										},
-									},
-									{
-										text: "howdy",
-										action: function (target) {
-											target.value += this.text;
-										},
-									},
-								],
-							},
-							{
-								text: "Names",
-								close: false,
-								submenu: [
-									{
-										text: "Ahmad",
-										action: function (target) {
-											target.value += " " + this.text;
-										},
-									},
-									{
-										text: "Mohammed",
-										action: function (target) {
-											target.value += " " + this.text;
-										},
-									},
-									{
-										text: "Mariam",
-										action: function (target) {
-											target.value += " " + this.text;
-										},
-									},
-									{
-										text: "Hamza",
-										action: function (target) {
-											target.value += " " + this.text;
-										},
-									},
-								],
-							},
-						],
-					},
 					{
 						text: "Clear",
 						action: function (target) {
