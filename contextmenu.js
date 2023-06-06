@@ -1,4 +1,4 @@
-/** 
+/**
  * If false, Show browser's native menu when no custom menu is specified.
  */
 let forceCustomMenu = true;
@@ -19,12 +19,12 @@ let menus = {
 
 /**
  * Adds a new context menu
- * 
+ *
  * @param {Element} target The target element, required
  * @param {Number} x X position of the menu
  * @param {Number} y Y position of the menu
  * @param {Array} customMenu The menu to force-use
- * 
+ *
  * @returns {Element} The menu that was just added
  */
 function contextMenu(target, x, y, customMenu) {
@@ -34,9 +34,11 @@ function contextMenu(target, x, y, customMenu) {
 	mainMenu.tabIndex = 0;
 	mainMenu.classList.add("menu");
 	mainMenu.classList.add("context-menu");
+
 	const targetRect = target.getBoundingClientRect();
 	mainMenu.style.left = (x ?? targetRect.x) + "px";
 	mainMenu.style.top = (y ?? targetRect.y) + "px";
+
 	const blur = function () {
 		setTimeout(() => {
 			if (!mainMenu.matches(":focus-within")) {
@@ -55,6 +57,7 @@ function contextMenu(target, x, y, customMenu) {
 				menu.appendChild(hr);
 				continue;
 			}
+
 			const menuItem = document.createElement("li");
 			menuItem.innerText = item.text;
 			menuItem.classList.add("menu-item");
@@ -69,13 +72,16 @@ function contextMenu(target, x, y, customMenu) {
 			if (item.header == true) {
 				menuItem.classList.add("header");
 			}
+
 			if (item.icon) {
 				menuItem.style.setProperty("--icon", "url('" + item.icon + "')");
 			}
+
 			if (item.disabled == true) {
 				menuItem.classList.add("disabled");
 				menuItem.inert = true;
 			}
+
 			if (!item.disabled) {
 				menuItem.tabIndex = 0;
 				const action = function (evt) {
@@ -86,14 +92,17 @@ function contextMenu(target, x, y, customMenu) {
 						mainMenu.remove();
 					}
 				};
+
 				menuItem.addEventListener("click", action);
 				menuItem.addEventListener("keydown", function (evt) {
 					if (evt.code == "Space" || evt.code == "Enter") {
 						action();
 					}
 				});
+
 				menuItem.addEventListener("blur", blur);
 			}
+
 			if (item.submenu) {
 				const submenu = document.createElement("ul");
 				submenu.classList.add("menu");
